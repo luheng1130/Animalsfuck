@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>666</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+	<script>
+	var html = document.getElementsByTagName("*");
+	console.log(html);
+	
+	var htmlArr = Array.from(html);
+	
+	console.log(htmlArr);
+	
+//	function Htmlarray(obj){
+//		var arr = [];
+//		var i ,h=obj.length;
+//		for(i = 0; i < h; i++){
+//			arr.push(obj[i]);
+//		}
+//		return arr;
+//	}
+//	
+//	console.log(Htmlarray());
+
+// var htmlArr2 = htmlArr;
+ 
+ function domByTagName(dArr){
+ 	var tagArr = [];
+ 	var i,
+ 	 	lg = dArr.length;
+// 	 	console.log(lg);
+ 	for(i=0;i<lg;i++){
+ 		tagArr.push(dArr[i].tagName);
+ 	}
+ 	return tagArr;
+ }
+//	console.log(domByTagName());
+	
+	var tagvarname = domByTagName(htmlArr);
+	console.log(tagvarname);
+		
+		function htmly(html){
+			var i,j,
+				tag = html.length;
+				var tag1 = [];
+			//循环遍历传入数组
+			for(i = 0;i<tag;i++){
+				//新数组是否包含当前循环的元素
+				var hasTrue = false;
+				//循环遍历新数组
+				for(j = 0; j<tag1.length;j++){
+					//新数组中的存在，改变hasTrue
+					if(html[i]===tag1[j]){
+						hasTrue = true;
+					}
+				}
+				if(!hasTrue){
+					tag1.push(html[i]);
+				}
+			}
+			return tag1;
+			}
+		
+		console.log(htmly(tagvarname))
+
+function htmly1(html){
+	var i,
+	tag = html.length;
+	var tag1 = [];
+	for(i = 0;i<tag;i++){
+		if(tag1.indexOf(html[i])=== -1){
+			tag1.push(html[i])
+		}
+	}
+	return tag1;
+}
+console.log(htmly1(tagvarname));
+		console.log(new Set(Array.from(document.querySelectorAll('*')).map(v =>v.tagName)))
+	</script>
+</html>
